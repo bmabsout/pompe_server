@@ -1,1 +1,1 @@
-nix run github:numtide/nixos-anywhere#nixos-anywhere -- --flake .#pompe --debug --kexec nixos-kexec-installer-aarch64-linux.tar.gz root@129.213.16.61
+nix run github:numtide/nixos-anywhere#nixos-anywhere -- --flake .#pompe --debug --kexec "$(nix build --print-out-paths github:nix-community/nixos-images#packages.aarch64-linux.kexec-installer-nixos-unstable)/nixos-kexec-installer-aarch64-linux.tar.gz" root@129.213.16.61
