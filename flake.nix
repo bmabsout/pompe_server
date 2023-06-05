@@ -9,7 +9,7 @@
       specialArgs = attrs;
       modules = [
         ./hardware-configuration.nix
-        ./configuration.txt
+        ./configuration.nix
         ({modulesPath, ... }: {
           imports = [
             disko.nixosModules.disko

@@ -8,10 +8,10 @@
         format = "gpt";
         partitions = [
           {
-            type = "partition";
             name = "ESP";
+            #type = "partition";
             start = "1MiB";
-            end = "100MiB";
+            end = "1GiB";
             bootable = true;
             content = {
               type = "filesystem";
@@ -21,8 +21,8 @@
           }
           {
             name = "root";
-            type = "partition";
-            start = "100MiB";
+            #type = "partition";
+            start = "1GiB";
             end = "100%";
             part-type = "primary";
             bootable = true;
