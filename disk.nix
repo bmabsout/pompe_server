@@ -1,5 +1,5 @@
 { disks ? [ "/dev/sda" ], ... }: {
-  disk = {
+  disko.devices.disk = {
     sda = {
       device = builtins.elemAt disks 0;
       type = "disk";
@@ -9,7 +9,6 @@
         partitions = [
           {
             name = "ESP";
-            #type = "partition";
             start = "1MiB";
             end = "1GiB";
             bootable = true;
@@ -21,7 +20,6 @@
           }
           {
             name = "root";
-            #type = "partition";
             start = "1GiB";
             end = "100%";
             part-type = "primary";
