@@ -5,10 +5,10 @@
   networking.hostName = "freedom";
   networking.domain = ""; #snek.network";
   #networking.networkmanager.enable = true; # Not sure if I want to use this yet
-  #services.zerotierone.enable = true;
-  #services.zerotierone.joinNetworks = [
-  #  "159924d6302966a9" # Personal network
-  #];
+  services.zerotierone.enable = true;
+  services.zerotierone.joinNetworks = [
+    "d5e5fb6537cdc092" # Personal network
+  ];
   services.openssh.enable = true;
   nix = {
     extraOptions = ''
@@ -29,8 +29,8 @@
           ];
 
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 21 22 80 443 ];
-  networking.firewall.allowedUDPPorts = [ 21 22 80 443 ];
+  networking.firewall.allowedTCPPorts = [ 21 22 80 443 51820 ];
+  networking.firewall.allowedUDPPorts = [ 21 22 80 443 51820 ];
 
   # ========== Boot Settings ==========
   nix.settings.system-features = [ "big-parallel" ];

@@ -10,6 +10,8 @@
       modules = [
         ./hardware-configuration.nix
         ./configuration.nix
+        ./wireguard.nix
+        ./fish.nix
         disko.nixosModules.disko
         (import ./disk.nix {})
       ];
