@@ -11,16 +11,13 @@ in
  # networking.firewall = {
  #   allowedUDPPorts = [ 51820 ];
  # };
+  networking.firewall.enable = false;
   services.dnsmasq = {
       enable = true;
-      extraConfig = ''
-        interface=${int}
-      '';
-    };
+      settings.interface= int;
+  };
 
-  networking.wireguard.interfaces = {
-    # "wg0" is the network interface name. You can name the interface arbitrarily.
-    wg0 = {
+  networking.wireguard.interfaces."${int}" = {
       # Determines the IP address and subnet of the server's end of the tunnel interface.
       ips = [ ip ];
 
@@ -49,13 +46,18 @@ in
 
       peers = [
         # List of allowed peers.
-        { # Feel free to give a meaning full name
+        { # pixelle
           # Public key of the peer (not a file path).
           publicKey = "70HwuXFEvHu37SuN7NinJNGmfr4smHT/TFlmZLAQo04=";
           # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
           allowedIPs = [ "10.10.0.2/32" ];
         }
+        { # mama iphone
+          # Public key of the peer (not a file path).
+          publicKey = "Xx8ypse+GNtwKnfnf1jji5z+AqBbCgDgrINpyfuCrwo=";
+          # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
+          allowedIPs = [ "10.10.0.3/32" ];
+        }
       ];
-    };
   };
 }
